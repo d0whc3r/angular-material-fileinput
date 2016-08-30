@@ -20,8 +20,8 @@
 
   lfNgMdFileinput.directive('lfRequired', function() {
     return {
-      restrict: "A",
-      require: "ngModel",
+      restrict: 'A',
+      require: 'ngModel',
       link: function(scope, element, attrs, ctrl) {
         if (!ctrl) {
           return;
@@ -38,8 +38,8 @@
 
   lfNgMdFileinput.directive('lfMaxcount', function() {
     return {
-      restrict: "A",
-      require: "ngModel",
+      restrict: 'A',
+      require: 'ngModel',
       link: function(scope, element, attrs, ctrl) {
         if (!ctrl) {
           return;
@@ -62,8 +62,8 @@
 
   lfNgMdFileinput.directive('lfFilesize', function() {
     return {
-      restrict: "A",
-      require: "ngModel",
+      restrict: 'A',
+      require: 'ngModel',
       link: function(scope, element, attrs, ctrl) {
         if (!ctrl) {
           return;
@@ -109,8 +109,8 @@
 
   lfNgMdFileinput.directive('lfTotalsize', function() {
     return {
-      restrict: "A",
-      require: "ngModel",
+      restrict: 'A',
+      require: 'ngModel',
       link: function(scope, element, attrs, ctrl) {
         if (!ctrl) {
           return;
@@ -151,15 +151,15 @@
 
   lfNgMdFileinput.directive('lfMimetype', function() {
     return {
-      restrict: "A",
-      require: "ngModel",
+      restrict: 'A',
+      require: 'ngModel',
       link: function(scope, element, attrs, ctrl) {
         if (!ctrl) {
           return;
         }
         var reg;
         attrs.$observe('lfMimetype', function(value) {
-          reg = new RegExp(value, "i");
+          reg = new RegExp(value, 'i');
           ctrl.$validate();
         });
         ctrl.$validators.mimetype = function(modelValue, viewValue) {
@@ -221,7 +221,7 @@
         '</div>'
       ].join(''),
       replace: true,
-      require: "ngModel",
+      require: 'ngModel',
       scope: {
         lfFiles: '=?',
         lfApi: '=?',
@@ -279,10 +279,10 @@
           });
         }
 
-        scope.strBrowseIconCls = "lf-browse";
-        scope.strRemoveIconCls = "lf-remove";
-        scope.strCaptionIconCls = "lf-caption";
-        scope.strUnknowIconCls = "lf-unknow";
+        scope.strBrowseIconCls = 'lf-browse';
+        scope.strRemoveIconCls = 'lf-remove';
+        scope.strCaptionIconCls = 'lf-caption';
+        scope.strUnknowIconCls = 'lf-unknow';
 
         if (angular.isDefined(attrs.lfOption)) {
           if (angular.isObject(scope.lfOption)) {
@@ -334,7 +334,7 @@
 
         scope.strCaptionRemove = 'Remove';
 
-        scope.strAriaLabel = "";
+        scope.strAriaLabel = '';
 
         if (angular.isDefined(attrs.ariaLabel)) {
           scope.strAriaLabel = attrs.ariaLabel;
@@ -365,25 +365,25 @@
           scope.strCaptionRemove = scope.lfRemoveLabel;
         }
 
-        elDragview.bind("dragover", function(e) {
+        elDragview.bind('dragover', function(e) {
           e.stopPropagation();
           e.preventDefault();
           if (scope.isDisabled || !scope.isDrag) {
             return;
           }
-          elDragview.addClass("lf-ng-md-file-input-drag-hover");
+          elDragview.addClass('lf-ng-md-file-input-drag-hover');
         });
 
-        elDragview.bind("dragleave", function(e) {
+        elDragview.bind('dragleave', function(e) {
           e.stopPropagation();
           e.preventDefault();
           if (scope.isDisabled || !scope.isDrag) {
             return;
           }
-          elDragview.removeClass("lf-ng-md-file-input-drag-hover");
+          elDragview.removeClass('lf-ng-md-file-input-drag-hover');
         });
 
-        elDragview.bind("drop", function(e) {
+        elDragview.bind('drop', function(e) {
 
           e.stopPropagation();
           e.preventDefault();
@@ -392,7 +392,7 @@
             return;
           }
 
-          elDragview.removeClass("lf-ng-md-file-input-drag-hover");
+          elDragview.removeClass('lf-ng-md-file-input-drag-hover');
 
           if (angular.isObject(e.originalEvent)) {
             e = e.originalEvent;
@@ -409,7 +409,7 @@
             return obj.lfFileName;
           });
 
-          var regexp = new RegExp(scope.accept, "i");
+          var regexp = new RegExp(scope.accept, 'i');
 
           scope.floatProgress = 0;
 
@@ -521,7 +521,7 @@
 
         };
 
-        elFileinput.bind("change", scope.onFileChanged);
+        elFileinput.bind('change', scope.onFileChanged);
 
         scope.onFileClick = function(key) {
           if (angular.isFunction(scope.lfOnFileClick)) {
@@ -549,10 +549,10 @@
             var lfDataUrl = window.URL.createObjectURL(file);
 
             var lfFileObj = {
-              "key": genLfObjId(),
-              "lfFile": lfFile,
-              "lfFileName": lfFileName,
-              "lfDataUrl": lfDataUrl
+              'key': genLfObjId(),
+              'lfFile': lfFile,
+              'lfFileName': lfFileName,
+              'lfDataUrl': lfDataUrl
             };
 
             scope.lfFiles.push(lfFileObj);
@@ -643,13 +643,13 @@
           var type = file.type;
           var name = file.name;
           if (isImageType(type, name)) {
-            return "image";
+            return 'image';
           } else if (isVideoType(type, name)) {
-            return "video";
+            return 'video';
           } else if (isAudioType(type, name)) {
-            return "audio";
+            return 'audio';
           }
-          return "object";
+          return 'object';
         };
 
         var isImageType = function(type, name) {
