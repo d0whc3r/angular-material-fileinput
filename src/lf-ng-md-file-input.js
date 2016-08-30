@@ -12,15 +12,6 @@
 
   var lfNgMdFileinput = angular.module('lfNgMdFileInput', ['ngMaterial']);
 
-  lfNgMdFileinput.directive('html5vfix', function() {
-    return {
-      restrict: 'A',
-      link: function(scope, element, attr) {
-        attr.$set('src', attr.vsrc);
-      }
-    }
-  });
-
   lfNgMdFileinput.run(function($templateCache) {
     $templateCache.put('lfNgMdFileinput.html', [
       '<div layout="column" class="lf-ng-md-file-input" ng-model="' + genLfObjId() + '">',
@@ -611,7 +602,7 @@
 
             } else {
 
-              tplPreview = ['<object data="' + lfDataUrl + '" type="' + lfFileType + '">',
+              tplPreview = ['<object data="' + lfDataUrl + '" type="' + lfFileType + '"><param name="movie" value="' + lfFile.name + '" />',
                 '<div class="lf-ng-md-file-input-preview-default">',
                 '<md-icon class="lf-ng-md-file-input-preview-icon" ng-class="strUnknowIconCls"></md-icon>',
                 '</div>',
