@@ -67,17 +67,17 @@
 .lf-ng-md-file-input .lf-ng-md-file-input-preview-container .lf-ng-md-file-input-frame > video {
   max-width: 100%;
   height: 160px;
-  widht: auto;
+  width: auto;
 }
 .lf-ng-md-file-input .lf-ng-md-file-input-preview-container .lf-ng-md-file-input-frame > audio {
   max-width: 100%;
   height: 160px;
-  widht: auto;
+  width: auto;
 }
 .lf-ng-md-file-input .lf-ng-md-file-input-preview-container .lf-ng-md-file-input-frame > object {
   max-width: 100%;
   height: 160px;
-  widht: auto;
+  width: auto;
 }
 .lf-ng-md-file-input .lf-ng-md-file-input-preview-container .lf-ng-md-file-input-frame > object .lf-ng-md-file-input-preview-default {
   width: 160px;
